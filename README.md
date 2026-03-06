@@ -38,3 +38,6 @@ Appliquer cette méthode d’évaluation à l’expression postfixe suivante (1 
 
 Pour évaluer 3 4 + 2 *, il faut lire le 3 et on le met direct sur la pile. Après on lit le 4 et on le pose par-dessus le 3. Quand on arrive sur le +, on récupère le 4 et le 3 pour faire l'addition, ce qui nous donne 7 et on remet sur la pile. Ensuite on lit le 2 et on le rajoute au-dessus du 7. Pour finir, on tombe sur le *, du coup on ressort le 2 et le 7 pour faire la multiplication. Ça nous donne 14
 
+Vous pouvez vous aidez de l’exo-3 en C token, mais surtout expliquez la différence en complexité spatial vs une solution IA utilisant malloc pour le split des tokens (bonus 4 pts)
+
+L'IA fait un malloc pour chaque token pour les mettre dans un tableau, donc ça bouffe de la place en complexité O(n)
