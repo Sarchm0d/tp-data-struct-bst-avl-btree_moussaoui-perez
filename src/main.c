@@ -1,15 +1,38 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-// Declaration de la fonction postfix
-int eval_postfix(const char *expr);
+// On définit la structure 
+typedef struct tree_node {
+    int data;
+    struct tree_node *parent;
+    struct tree_node *left;
+    struct tree_node *right;
+} TreeNode;
+
 
 int main() {
-    // Expression à tester : (3 + 4) * 2 = 14
-    const char *expr = "3 4 + 2 *";
+    TreeNode root = {
+        .data = 'F',
+        .left = &(TreeNode){
+            .data = 'B',
+            .left = &(TreeNode){ .data = 'A', .left = NULL, .right = NULL, },
+            .right = &(TreeNode){
+            .data = 'D',
+            .left = &(TreeNode){ .data = 'C', .left = NULL, .right = NULL, },
+            .right = &(TreeNode){ .data = 'E', .left = NULL, .right = NULL, },
+            },
+        },
+        .right = &(TreeNode){
+            .data = 'G',
+            .left = NULL,
+            .right = &(TreeNode){
+            .data = 'I',
+            .left = &(TreeNode){ .data = 'H', .left = NULL, .right = NULL, },
+            .right = NULL,
+            },
+        },
+    };
 
-    int resultat = eval_postfix(expr);
-   
-    printf("L'expression '%s' donne : %d\n", expr, resultat);
-    
+    printf("Racine : %c\n", root.data);
     return 0;
 }

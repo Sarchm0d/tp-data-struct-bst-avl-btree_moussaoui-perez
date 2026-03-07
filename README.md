@@ -41,3 +41,40 @@ Pour évaluer 3 4 + 2 *, il faut lire le 3 et on le met direct sur la pile. Apr�
 Vous pouvez vous aidez de l’exo-3 en C token, mais surtout expliquez la différence en complexité spatial vs une solution IA utilisant malloc pour le split des tokens (bonus 4 pts)
 
 L'IA fait un malloc pour chaque token pour les mettre dans un tableau, donc ça bouffe de la place en complexité O(n)
+
+
+
+
+
+
+Proposer trois arbres (1.5 pts)
+
+    un arbre dit équilibré
+        10
+      5   15
+
+    un arbre dit non équilibré
+        10
+      5   15
+            18
+
+    un arbre dit dégénéré
+        10
+          15
+            18
+
+
+Main de base avec arbre statique (2.5 pt)
+
+Expliquer en quoi cette construction « sur la pile » est limitée dès qu’on souhaite insérer ou supprimer des nœuds à l’exécution. Et si cette construction est compatible avec malloc et free (1 pt)
+
+Cette construction sur la pile est limié car on ne peut pas inséré ou supprimer des noeuds pendant que le programme s'execute. De plus, l'arbre disparaitra quand la fonction sera terminé. Ce n'est pas compatible avec malloc et free
+
+Ecrire un main de base qui déclare cette variable root pour la suite (0.5 pt)
+
+Fait (voir main)
+
+Est-ce un BST en suposant l’ordre alphabétique ? (1 pt)
+
+Oui, il s'agit d'un BST avec des lettres. Les premières lettres vont à gauche et celles plus avancés dans l'alphabet à droite. 
+
