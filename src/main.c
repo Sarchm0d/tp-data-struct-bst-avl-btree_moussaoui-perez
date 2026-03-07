@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// On définit la structure 
-typedef struct tree_node {
-    int data;
-    struct tree_node *parent;
-    struct tree_node *left;
-    struct tree_node *right;
-} TreeNode;
+#include "bst.c"
 
 
 int main() {
@@ -34,5 +27,18 @@ int main() {
     };
 
     printf("Racine : %c\n", root.data);
+
+    printf("Parcours prefixe : ");
+    preorder(&root, print_node);
+    printf("\n");
+
+    printf("Parcours infixe : ");
+    inorder(&root, print_node);
+    printf("\n");
+
+    printf("Parcours postfixe : ");
+    postorder(&root, print_node);
+    printf("\n");
+
     return 0;
 }

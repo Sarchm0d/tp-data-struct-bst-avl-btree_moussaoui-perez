@@ -1,7 +1,6 @@
 #include <stdio.h>
-
-// Declaration de la fonction postfix
-int eval_postfix(const char *expr);
+#include <stdlib.h>
+#include "../src/eval_postfix.c"
 
 int test_eval_postfix() {
     // Expression à tester : (3 + 4) * 2 = 14

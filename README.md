@@ -78,3 +78,21 @@ Est-ce un BST en suposant l’ordre alphabétique ? (1 pt)
 
 Oui, il s'agit d'un BST avec des lettres. Les premières lettres vont à gauche et celles plus avancés dans l'alphabet à droite. 
 
+
+
+
+
+
+Fonctions de traversée d’arbre récursives (2.5 pts)
+
+Adapter ces fonctions pour utiliser correctement process_fn (signatures, appels). (1 pt)
+
+Fait (voir bst.c)
+
+Écrire un callback void print_node(struct tree_node *n) qui affiche n->data. (1 pt)
+
+Fait (voir bst.c)
+
+Que donne le parcours infixe sur l’arbre précédent ? (0.5 pt)
+
+A B C D E F G H I
