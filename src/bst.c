@@ -39,3 +39,50 @@ void print_node(struct tree_node *n) {
         printf("%c ", n->data);
     }
 }
+
+// On alloue un noeudsur le tas et on initialise ses champs
+struct tree_node *node_new(int data) {
+    struct tree_node *n = malloc(sizeof(struct tree_node));
+    n->data = data;
+    n->left = NULL;
+    n->right = NULL;
+    n->parent = NULL;
+    return n;
+}
+
+// // On insere data dans le bst, on met à jour le panrent et on return le nouveau noeud
+struct tree_node *bst_insert(struct tree_node **root, int data) {
+    struct tree_node *new_node = node_new(data);
+
+    if (*root == NULL) {
+        *root = new_node;
+        return new_node;
+    }
+
+    struct tree_node *current = *root;
+    struct tree_node *parent = NULL;
+
+    while (current != NULL) {
+        parent = current;
+        if (data < current->data){
+            current = current->left;
+        }
+            
+        else {
+            current = current->right;
+        }
+            
+    }
+
+    new_node->parent = parent;
+    if (data < parent->data){
+        parent->left = new_node;
+    }
+        
+    else{
+        parent->right = new_node;
+    }
+        
+
+    return new_node;
+}
