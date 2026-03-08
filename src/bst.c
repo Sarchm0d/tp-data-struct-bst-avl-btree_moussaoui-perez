@@ -86,3 +86,46 @@ struct tree_node *bst_insert(struct tree_node **root, int data) {
 
     return new_node;
 }
+
+
+void preorder_iter(struct tree_node *root, process_fn process) {
+    struct tree_node *cur = root;
+    while (cur != NULL) {
+        process(cur);
+        if (cur->left) {
+            cur = cur->left;
+        } else if (cur->right) {
+            cur = cur->right;
+        } else {
+            while (cur->parent != NULL && !(cur == cur->parent->left && cur->parent->right != NULL)) {
+                cur = cur->parent;
+            }
+            if (cur->parent == NULL) {
+                break;
+            }
+            cur = cur->parent->right;
+        }
+    }
+}
+
+void inorder_iter(struct tree_node *root, process_fn process) {
+    struct tree_node *cur = root;
+    while (cur && cur->left) {
+        cur = cur->left;
+    }
+
+    while (cur != NULL) {
+        process(cur);
+        if (cur->right) {
+            cur = cur->right;
+            while (cur->left) {
+                cur = cur->left;
+            }
+        } else {
+            while (cur->parent != NULL && cur == cur->parent->right) {
+                cur = cur->parent;
+            }
+            cur = cur->parent;
+        }
+    }
+}

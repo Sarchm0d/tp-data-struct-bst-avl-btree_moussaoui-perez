@@ -100,6 +100,8 @@ A B C D E F G H I
 
 
 
+
+
 Transformer en allocation dynamique (5 pts)
 
 Construire à la main le BST résultant de cette séquence d’insertions et dessiner l’arbre (pointeurs left et right). (1 pt)
@@ -128,3 +130,22 @@ Fait (voir bst.c)
 Écrire bst_insert(3 pts)
 
 Fait (voir bst.c)
+
+
+
+
+
+
+Fonctions de traversée d'arbre itératives (5 pts)
+
+Proposer une version itérative de preorder et inorder (4 pts)
+
+Fait (voir preorder_iter et inorder_iter dans bst.c)
+
+Expliquer la stratégie générale (1 pt)
+
+On utilise le pointeur parent déjà dans la structure pour remonter l'arbre sans pile ni champ supplémentaire. Quand on ne peut plus descendre, on remonte via le neoudparent pour trouver le prochain noeud à visiter dans l'ordre que l'on veut
+
+Comparaison de complexité récursif vs itératif (bonus 4 pts)
+
+Complexité de O(n) dans les deux cas, chaque noeud est visité une seule fois
