@@ -102,8 +102,7 @@ A B C D E F G H I
 
 Transformer en allocation dynamique (5 pts)
 
-Construire à la main le BST résultant de l'insertion de : 10, 2, 25, 15, 30, 12, 20, 16, 24, 17, 22 (1 pt)
-
+Construire à la main le BST résultant de cette séquence d’insertions et dessiner l’arbre (pointeurs left et right). (1 pt)
 ```
               10
             /    \
@@ -118,12 +117,9 @@ Construire à la main le BST résultant de l'insertion de : 10, 2, 25, 15, 30, 1
                 17 22
 ```
 
-Quel aurait été le résultat si la séquence initiale avait été triée ? (1 pt)
+Quel aurait été le résultat si la séquence initial avait été trié ? (1 pt)
 
-Si on insère les valeurs dans l'ordre croissant (ex: 2, 10, 12, 15, 16, 17, 20, 22, 24, 25, 30),
-chaque nouvelle valeur est toujours supérieure à la précédente, donc elle part toujours à droite.
-On obtient un arbre dégénéré (une chaîne vers la droite), équivalent à une liste chaînée.
-La hauteur est n au lieu de log(n), ce qui dégrade les performances à O(n) pour recherche/insertion.
+On aurait obtenu un arbre dégénéré
 
 Écrire node_new 
 
