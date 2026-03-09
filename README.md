@@ -237,3 +237,32 @@ Changer de base revient à multiplier par une constante, or O ignore les constan
 L'arbre AVL a une hauteur en O(log n), l'insertion descend au max de O(log n) n. Une fois inséré, on remonte pour rééquilibrer, mais on fait au maximum 2 rotations, donc O(1) rotations par insertion.
 
 
+
+
+
+## Rotations (7 pts)
+
+### Décrire les quatre cas classiques de rotation (LL, RR, LR, RL), en explicitant les préconditions sur les facteurs d'équilibre des nœuds impliqués. (2 pt)
+
+LL : trop lourd à gauche, enfant gauche penche à gauche = rotation droite
+RR : trop lourd à droite, enfant droit penche à droite = rotation gauche
+LR : trop lourd à gauche, enfant gauche penche à droite = rotation gauche sur l'enfant puis rotation droite
+RL : trop lourd à droite, enfant droit penche à gauche = rotation droite sur l'enfant puis rotation gauche
+
+### Discuter pourquoi, pour une insertion donnée, le nombre total de rotations nécessaires est borné par une constante indépendante de la taille de l'arbre. (1 pt)
+
+On fait au max 2 rotations par insertion. Donc une fois rééquilibré, le déséquilibre ne va pas plus haut.
+
+### Écrire la fonction : avl_node *avl_balance(avl_node *x); (4 pts)
+
+Fait (voir avl_balance dans avl.c)
+
+## Fonction avl_insert(x) (2 pts)
+
+### L’insertion dans un AVL suit la logique d’insertion dans un BST, puis opère un rééquilibrage le long du chemin de remontée. Écrire la fonction :avl_node *avl_insert(avl_node *root, avl_node *x); en supposant left(x) = right(x) = parent(x) = NULL au départ. Avec une stratégie pour avl_insert, qui insère le nœud comme dans un BST (facile) puis remonte et appelle avl_balance sur les nœuds concernés. (2 pts)
+
+Fait (voir avl_insert dans avl.c)
+
+
+
+
