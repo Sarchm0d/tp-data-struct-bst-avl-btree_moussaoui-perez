@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // On définit la structure 
 typedef struct tree_node {
@@ -129,3 +131,70 @@ void inorder_iter(struct tree_node *root, process_fn process) {
         }
     }
 }
+
+
+void tree_free(struct tree_node *subroot) {
+    if (subroot == NULL) {
+        return;
+    }
+    tree_free(subroot->left);
+    tree_free(subroot->right);
+    free(subroot);
+}
+
+struct tree_node *tree_delete(struct tree_node **root, int key) {
+    // On cherche le nœud à supprimer
+    struct tree_node *n = *root;
+    while (n != NULL && n->data != key) {
+        if (key < n->data) {
+            n = n->left;
+        } 
+        else {
+            n = n->right;
+        }
+    }
+    if (n == NULL) {
+        return NULL; 
+    }
+
+    if (n->left == NULL || n->right == NULL) {
+        // Cas 1 : 0 enfant et Cas 2  : 1 enfant
+        struct tree_node *child = (n->left != NULL) ? n->left : n->right;
+        if (n->parent == NULL) {
+            *root = child;
+        } 
+        else if (n == n->parent->left) {
+            n->parent->left = child;
+        } 
+        else {
+            n->parent->right = child;
+        }
+        if (child != NULL) {
+            child->parent = n->parent;
+        }
+        free(n);
+    } 
+    else {
+        // Cas 3 : deux enfants => successeur = minimum du sous-arbre droit
+        struct tree_node *successor = n->right;
+        while (successor->left != NULL) {
+            successor = successor->left;
+        }
+        // On copie la valeur du successeur dans n, puis on supprime le successeur
+        n->data = successor->data;
+        struct tree_node *child = successor->right;
+        if (successor == successor->parent->left) {
+            successor->parent->left = child;
+        } 
+        else {
+            successor->parent->right = child;
+        }
+        if (child != NULL) {
+            child->parent = successor->parent;
+        }
+        free(successor);
+    }
+
+    return NULL;
+}
+
