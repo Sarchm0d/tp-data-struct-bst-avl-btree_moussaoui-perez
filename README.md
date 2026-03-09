@@ -197,3 +197,43 @@ Avec le successeur, ca reduit les sous-arbres droits (on remonte depuis la droit
 ### Proposer une version de tree_delete qui choisit aléatoirement, pour chaque suppression de nœud à deux enfants, entre successeur et prédécesseur. Discuter l’intérêt de cette randomisation du point de vue de la forme moyenne de l’arbre. (1 pt)
 
 C'est long
+
+## Variante de tree_delete avec prédécesseur (3 pts)
+
+Je passe à la suite sinon j'aurais pas le temps de finir
+
+
+
+
+
+
+## Arbres AVL (15 pts)
+
+### Les deux arbres construits dans la partie BST (entiers et lettres) satisfont‑ils la condition AVL ? Justifier votre réponse.
+
+L'arbre F, B, G, A, D, C, E, I, H n'est pas un AVL car le nœud G a un sous arbre droit de hauteur 2  et un sous arbre gauche de hauteur 0
+
+L'arbre 10, 2, 25, 15, 30, 12, 20, 16, 24, 17, 22 n'est pas non plus un AVL car plusieurs nœuds ont un déséquilibre > 1
+
+### Si ce n’est pas le cas, proposer une nouvelle version équilibrée contenant les mêmes clés.
+              16
+          12        22
+        10  15    20   25
+      2   12    17   24   30
+
+### Montrer qu’un AVL contenant n nœuds a une hauteur en Olog.
+Pass
+
+### Préciser si l’on parle de Log2(n) ou Log10(n)
+
+On parle en log₂(n) car les arbres binaires se divisent en 2 à chaque fois
+
+### Pourquoi cette distinction n’affecte pas la classe de complexité et que l’on parle simplement de O(log n)
+
+Changer de base revient à multiplier par une constante, or O ignore les constante. Donc log2(n) et log10(n) sont compris dans  O(log n)
+
+### Justifier que avl_insert a une complexité en O(log n) et effectue un nombre O(1) de rotations par insertion.
+
+L'arbre AVL a une hauteur en O(log n), l'insertion descend au max de O(log n) n. Une fois inséré, on remonte pour rééquilibrer, mais on fait au maximum 2 rotations, donc O(1) rotations par insertion.
+
+
